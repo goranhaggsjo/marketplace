@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface ShoppingBasketRepository {
 	public List<ShoppingBasket> getAllShoppingBaskets();
+	public void setOrderInShoppingBasket(int userId, int productId, int quantity);
 }

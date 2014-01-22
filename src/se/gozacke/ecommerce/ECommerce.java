@@ -60,5 +60,10 @@ public class ECommerce implements CategoryRepository, ProductRepository, UserRep
 	public List<ShoppingBasket> getAllShoppingBaskets() {
 		return shoppingBasketRepository.getAllShoppingBaskets();
 	}
+	
+	@Override
+	public void setOrderInShoppingBasket(int userId, int productId, int quantity) {
+		shoppingBasketRepository.setOrderInShoppingBasket(userId, productId, quantity);
+	}
 	// *******************************************************************
 }
