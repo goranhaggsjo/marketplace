@@ -14,24 +14,24 @@ public class Main {
 
 	public static void main(String[] args) {
 		// *************************************************************************
-//		UserRepository userRepository = new MySQLUserRepository();
-//		UserRepository eCommerceUser = new ECommerce(userRepository);
+		UserRepository userRepository = new MySQLUserRepository();
+		UserRepository eCommerceUser = new ECommerce(userRepository);
 		
-//		System.out.println(eCommerceUser.getAllUsers());
+		System.out.println(eCommerceUser.getAllUsers());
 		// *************************************************************************
 		
 		// *************************************************************************
-//		ProductRepository productRepository = new MySQLProductRepository();
-//		ProductRepository eCommerceProduct = new ECommerce(productRepository);
+		ProductRepository productRepository = new MySQLProductRepository();
+		ProductRepository eCommerceProduct = new ECommerce(productRepository);
 		
-//		System.out.println(eCommerceProduct.getAllProducts());
+		System.out.println(eCommerceProduct.getAllProducts());
 		// *************************************************************************
 		
 		// *************************************************************************
-//		CategoryRepository categoryRepository = new MySQLCategoryRepository();
-//		CategoryRepository eCommerceCategory = new ECommerce(categoryRepository);
+		CategoryRepository categoryRepository = new MySQLCategoryRepository();
+		CategoryRepository eCommerceCategory = new ECommerce(categoryRepository);
 		
-//		System.out.println(eCommerceCategory.getAllCategories());
+		System.out.println(eCommerceCategory.getAllCategories());
 		// *************************************************************************
 		
 		// *************************************************************************
