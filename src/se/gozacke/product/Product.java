@@ -50,4 +50,17 @@ public class Product {
 	public void setRrp(double rrp) {
 		this.rrp = rrp;
 	}
+	
+	@Override
+	public String toString() {
+		String productInfo = "";
+		
+		productInfo += "productId: " + productId + "\n";
+		productInfo += "productName: " + productName + "\n";
+		productInfo += "description: " + description + "\n";
+		productInfo += "cost: " + cost + "\n";
+		productInfo += "rrp: " + rrp + "\n";
+		
+		return productInfo;
+	}
 }

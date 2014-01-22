@@ -1,33 +1,30 @@
 package se.gozacke.shoppingbasket;
 
-import se.gozacke.product.Product;
-import se.gozacke.user.User;
-
 public class ShoppingBasket {
-	private User user;
-	private Product product;
+	private int userId;
+	private int productId;
 	private int quantity;
 	
 	public ShoppingBasket() {
-		user = null;
-		product = null;
+		userId = 0;
+		productId = 0;
 		quantity = 0;
 	}
 	
-	public User getUser() {
-		return user;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public Product getProduct() {
-		return product;
+	public int getProductId() {
+		return productId;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
 	public int getQuantity() {
@@ -36,5 +33,16 @@ public class ShoppingBasket {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	
+	@Override
+	public String toString() {
+		String shoppingBasketInfo = "";
+		
+		shoppingBasketInfo += "userId: " + userId + "\n";
+		shoppingBasketInfo += "productId: " + productId + "\n";
+		shoppingBasketInfo += "quantity: " + quantity + "\n";
+		
+		return shoppingBasketInfo;
 	}
 }

@@ -1,35 +1,44 @@
 package se.gozacke.category;
 
-import se.gozacke.staff.Staff;
-
 public class Category {
 	private final int categoryId;
-	private Staff staff;
+	private int staffId;
 	private String categoryName;
 	
 	public Category(int categoryId) {
 		this.categoryId = categoryId;
-		staff = null;
+		staffId = 0;
 		categoryName = null;
 	}
 	
 	public int getCategoryId() {
 		return categoryId;
 	}
-
-	public Staff getStaff() {
-		return staff;
+	
+	public int getStaffId() {
+		return staffId;
 	}
 
-	public void setStaff(Staff staff) {
-		this.staff = staff;
+	public void setStaffId(int staffId) {
+		this.staffId = staffId;
 	}
-
+	
 	public String getCategoryName() {
 		return categoryName;
 	}
 
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
+	}
+	
+	@Override
+	public String toString() {
+		String categoryInfo = "";
+		
+		categoryInfo += "categoryId: " + categoryId + "\n";
+		categoryInfo += "staffId: " + staffId + "\n";
+		categoryInfo += "categoryName: " + categoryName + "\n";
+		
+		return categoryInfo;
 	}
 }

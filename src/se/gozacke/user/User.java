@@ -90,4 +90,21 @@ public class User {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+	
+	@Override
+	public String toString() {
+		String userInfo = "";
+		
+		userInfo += "userId: " + userId + "\n";
+		userInfo += "email: " + email + "\n";
+		userInfo += "password: " + password + "\n";
+		userInfo += "firstName: " + firstName + "\n";
+		userInfo += "surName: " + surName + "\n";
+		userInfo += "streetAddress: " + streetAddress + "\n";
+		userInfo += "postCode: " + postCode + "\n";
+		userInfo += "town: " + town + "\n";
+		userInfo += "telephone: " + telephone + "\n";
+		
+		return userInfo;
+	}
 }
