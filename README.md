@@ -1,7 +1,4 @@
-Marketplace 
+<h1>Marketplace</h1> 
 
-This is a schoolproject via C3L.
-
-This line was written by ulf.
-
-Test om jag slipper password.
+<p>This is a schoolproject via C3L.</p>
+<p>This is a class library for startup a shop</p>
