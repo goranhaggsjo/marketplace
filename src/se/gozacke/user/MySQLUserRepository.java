@@ -81,4 +81,19 @@ public class MySQLUserRepository implements UserRepository {
 	    
 	    return users;
 	}
+
+	@Override
+	public Boolean login(String myUser, String myPassword, UserRepository users) {
+		
+		int length = users.getAllUsers().size();
+		
+		for(int i = 0; i < length; i++ ) {
+			if (myUser == users.getAllUsers().get(i).getEmail()) {
+				//this.userId = users.getAllUsers().get(i).getUserId(); 
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

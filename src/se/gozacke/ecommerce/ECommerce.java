@@ -53,6 +53,14 @@ public class ECommerce implements CategoryRepository, ProductRepository, UserRep
 	public List<User> getAllUsers() {
 		return userRepository.getAllUsers();
 	}
+
+	@Override
+	public Boolean login(String myUser, String myPassword, UserRepository users)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	// *******************************************************************
 	
 	// *******************************************************************
@@ -71,4 +79,5 @@ public class ECommerce implements CategoryRepository, ProductRepository, UserRep
 		shoppingBasketRepository.updateOrderInShoppingBasket(shoppingBasket);
 	}
 	// *******************************************************************
+
 }
