@@ -232,4 +232,86 @@ private List<ShoppingBasket> shoppingBaskets;
 			}
 		}
 	}
+	
+	//****************************
+	@Override
+	public void deleteOrderInShoppingBasket(ShoppingBasket shoppingBasket) {
+		ResultSet rs = null;
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    
+	    try {
+			conn = Database.getConnection();
+			
+			conn.setAutoCommit(false);
+			
+			String query = "DELETE FROM shoppingbasket WHERE id = ?;";
+		
+//			+ "SET users_id = ?, "
+//			 + "products_id = ?, "
+//			 + "quantity = ? "
+//			 + "WHERE id = ?;";
+			
+//			DELETE FROM Customers
+//			WHERE CustomerName='Alfreds Futterkiste' AND ContactName='Maria Anders';
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, shoppingBasket.getShoppingBasketId());
+//			pstmt.setInt(2, shoppingBasket.getProductId());
+//			pstmt.setInt(3, shoppingBasket.getQuantity());
+//			pstmt.setInt(4, shoppingBasket.getShoppingBasketId());
+			
+//			pstmt.executeQuery();
+			pstmt.executeUpdate();
+			// Display all the data in the table.
+//			while (rs.next()) {
+//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
+//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
+//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
+//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
+//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
+				
+//				tempCustomer.setFirstname(rs.getString("firstname"));
+//				tempCustomer.setSurname(rs.getString("surname"));
+//				tempCustomer.setStreetAddress(rs.getString("street_address"));
+//				tempCustomer.setPostCode(rs.getString("post_code"));
+//				tempCustomer.setTown(rs.getString("town"));
+//				tempCustomer.setMobile(rs.getString("mobile"));
+//				tempCustomer.setEmail(rs.getString("email"));
+//				
+//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
+//				
+//				tempUser.setUser(rs.getString("user"));
+//				tempUser.setPass(rs.getString("pass"));
+//				
+//				shoppingBaskets.add(tempShoppingbasket);
+//	        }
+			conn.commit();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

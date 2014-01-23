@@ -1,11 +1,15 @@
 package se.gozacke.product;
 
 public class Product {
-	private final int productId;
+	private int productId;
 	private String productName;
 	private String description;
 	private double cost;
 	private double rrp;
+	
+	public Product() {
+		
+	}
 	
 	public Product(int productId) {
 		this.productId = productId;
@@ -18,6 +22,10 @@ public class Product {
 	public int getProductId() {
 		return productId;
 	}
+	
+//	public void setProductId(int productId) {
+//		this.productId = productId;
+//	}
 
 	public String getProductName() {
 		return productName;
