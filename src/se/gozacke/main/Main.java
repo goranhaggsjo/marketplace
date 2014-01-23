@@ -16,12 +16,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		// *************************************************************************
-//		UserRepository userRepository = new MySQLUserRepository();
-//		UserRepository eCommerceUser = new ECommerce(userRepository);
+		UserRepository userRepository = new MySQLUserRepository();
+		UserRepository eCommerceUser = new ECommerce(userRepository);
 		
-//		System.out.println(eCommerceUser.getAllUsers());
+		System.out.println(eCommerceUser.getAllUsers());
 		// *************************************************************************
-		
 		// *************************************************************************
 		ProductRepository productRepository = new MySQLProductRepository();
 		ProductRepository eCommerceProduct = new ECommerce(productRepository);
