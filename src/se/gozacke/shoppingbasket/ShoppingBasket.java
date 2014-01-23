@@ -1,14 +1,20 @@
 package se.gozacke.shoppingbasket;
 
 public class ShoppingBasket {
+	private final int shoppingBasketId;
 	private int userId;
 	private int productId;
 	private int quantity;
 	
-	public ShoppingBasket() {
+	public ShoppingBasket(int shoppingBasketId) {
+		this.shoppingBasketId = shoppingBasketId;
 		userId = 0;
 		productId = 0;
 		quantity = 0;
+	}
+	
+	public int getShoppingBasketId() {
+		return shoppingBasketId;
 	}
 	
 	public int getUserId() {
@@ -39,6 +45,7 @@ public class ShoppingBasket {
 	public String toString() {
 		String shoppingBasketInfo = "";
 		
+		shoppingBasketInfo += "shoppingBasketId: " + shoppingBasketId + "\n";
 		shoppingBasketInfo += "userId: " + userId + "\n";
 		shoppingBasketInfo += "productId: " + productId + "\n";
 		shoppingBasketInfo += "quantity: " + quantity + "\n";

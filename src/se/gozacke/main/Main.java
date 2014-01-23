@@ -6,6 +6,7 @@ import se.gozacke.ecommerce.ECommerce;
 import se.gozacke.product.MySQLProductRepository;
 import se.gozacke.product.ProductRepository;
 import se.gozacke.shoppingbasket.MySQLShoppingBasketRepository;
+import se.gozacke.shoppingbasket.ShoppingBasket;
 import se.gozacke.shoppingbasket.ShoppingBasketRepository;
 import se.gozacke.user.MySQLUserRepository;
 import se.gozacke.user.UserRepository;
@@ -39,6 +40,11 @@ public class Main {
 		ShoppingBasketRepository eCommerceShoppingBasket = new ECommerce(shoppingBasketRepository);
 		
 //		eCommerceShoppingBasket.setOrderInShoppingBasket(2, 1, 6);
+		ShoppingBasket sb1 = eCommerceShoppingBasket.getAllShoppingBaskets().get(1);
+		sb1.setUserId(3);
+		sb1.setQuantity(15);
+		
+		eCommerceShoppingBasket.updateOrderInShoppingBasket(sb1);
 		
 		System.out.println(eCommerceShoppingBasket.getAllShoppingBaskets());
 		// *************************************************************************
