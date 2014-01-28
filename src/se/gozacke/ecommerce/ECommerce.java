@@ -10,16 +10,20 @@ import se.gozacke.productcategory.ProductCategory;
 import se.gozacke.productcategory.ProductCategoryRepository;
 import se.gozacke.shoppingbasket.ShoppingBasket;
 import se.gozacke.shoppingbasket.ShoppingBasketRepository;
+import se.gozacke.staff.Staff;
+import se.gozacke.staff.StaffRepository;
 import se.gozacke.user.User;
 import se.gozacke.user.UserRepository;
 
 public class ECommerce implements CategoryRepository, ProductRepository, UserRepository,
-								  ShoppingBasketRepository, ProductCategoryRepository {
+								  ShoppingBasketRepository, ProductCategoryRepository,
+								  StaffRepository {
 	CategoryRepository categoryRepository;
 	ProductRepository productRepository;
 	UserRepository userRepository;
 	ShoppingBasketRepository shoppingBasketRepository;
 	ProductCategoryRepository productCategoryRepository;
+	StaffRepository staffRepository;
 	
 	public ECommerce(CategoryRepository categoryRepository) {
 		this.categoryRepository = categoryRepository;
@@ -41,6 +45,10 @@ public class ECommerce implements CategoryRepository, ProductRepository, UserRep
 		this.productCategoryRepository = productCategoryRepository;
 	}
 	
+	public ECommerce(StaffRepository staffRepository) {
+		this.staffRepository = staffRepository;
+	}
+	
 	// *******************************************************************
 	@Override
 	public List<Category> getAllCategories() {
@@ -60,6 +68,16 @@ public class ECommerce implements CategoryRepository, ProductRepository, UserRep
 	@Override
 	public void deleteCategory(Category category) {
 		categoryRepository.deleteCategory(category);
+	}
+	
+	@Override
+	public List<Category> getCategoryOnCategoryName(String categoryName) {
+		return categoryRepository.getCategoryOnCategoryName(categoryName);
+	}
+	
+	@Override
+	public void updateStaffMemberResponsibleForCategory(int staffId, int categoryId) {
+		categoryRepository.updateStaffMemberResponsibleForCategory(staffId, categoryId);
 	}
 	// *******************************************************************
 	
@@ -168,6 +186,13 @@ public class ECommerce implements CategoryRepository, ProductRepository, UserRep
 	@Override
 	public void deleteProductCategory(ProductCategory productCategory) {
 		productCategoryRepository.deleteProductCategory(productCategory);
+	}
+	// *******************************************************************
+	
+	// *******************************************************************
+	@Override
+	public List<Staff> getStaffFromFirstNameAndSurName(String firstName, String surName) {
+		return staffRepository.getStaffFromFirstNameAndSurName(firstName, surName);
 	}
 	// *******************************************************************
 }

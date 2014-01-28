@@ -110,4 +110,22 @@ public class Staff {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Override
+	public String toString() {
+		String staffInfo = "";
+		
+		staffInfo += "staffId: " + staffId + "\n";
+		staffInfo += "salary: " + salary + "\n";
+		staffInfo += "firstName: " + firstName + "\n";
+		staffInfo += "surName: " + surName + "\n";
+		staffInfo += "dateOfBirth: " + dateOfBirth + "\n";
+		staffInfo += "streetAddress: " + streetAddress + "\n";
+		staffInfo += "town: " + town + "\n";
+		staffInfo += "postCode: " + postCode + "\n";
+		staffInfo += "mobile: " + mobile + "\n";
+		staffInfo += "email: " + email + "\n";
+		
+		return staffInfo;
+	}
 }
