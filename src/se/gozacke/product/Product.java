@@ -1,3 +1,4 @@
+//test
 package se.gozacke.product;
 
 public class Product {
