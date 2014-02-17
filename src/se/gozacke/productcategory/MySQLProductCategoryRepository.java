@@ -30,31 +30,14 @@ public class MySQLProductCategoryRepository implements ProductCategoryRepository
 			
 			pstmt = conn.prepareStatement(query);
 			
-//			pstmt.setString(1, "categories.staff_id");
-//			pstmt.setString(2, "Crane");
-			
 			rs = pstmt.executeQuery();
 			
 			// Display all the data in the table.
 			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
 				ProductCategory tempProductCategory = new ProductCategory(rs.getInt("id"));
 				tempProductCategory.setProductId(rs.getInt("products_id"));
 				tempProductCategory.setCategoryId(rs.getInt("categories_id"));
 				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
 				productCategories.add(tempProductCategory);
 	        }
 		} catch (ClassNotFoundException e) {
@@ -98,31 +81,8 @@ public class MySQLProductCategoryRepository implements ProductCategoryRepository
 			pstmt.setInt(1, productCategory.getProductId());
 			pstmt.setInt(2, productCategory.getCategoryId());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -130,7 +90,6 @@ public class MySQLProductCategoryRepository implements ProductCategoryRepository
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -173,31 +132,8 @@ public class MySQLProductCategoryRepository implements ProductCategoryRepository
 			pstmt.setInt(2, productCategory.getCategoryId());
 			pstmt.setInt(3, productCategory.getProductCategoryId());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -205,7 +141,6 @@ public class MySQLProductCategoryRepository implements ProductCategoryRepository
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -243,31 +178,8 @@ public class MySQLProductCategoryRepository implements ProductCategoryRepository
 			
 			pstmt.setInt(1, productCategory.getProductCategoryId());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -275,7 +187,6 @@ public class MySQLProductCategoryRepository implements ProductCategoryRepository
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();

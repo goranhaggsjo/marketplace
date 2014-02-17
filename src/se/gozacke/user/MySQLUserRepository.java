@@ -27,14 +27,10 @@ public class MySQLUserRepository implements UserRepository {
 		
 			pstmt = conn.prepareStatement(query);
 			
-//			pstmt.setString(1, "Juliet");
-//			pstmt.setString(2, "Crane");
-			
 			rs = pstmt.executeQuery();
 			
 			// Display all the data in the table.
 			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
 				User tempUser = new User(rs.getInt("id"));
 				tempUser.setEmail(rs.getString("email"));
 				tempUser.setPassword(rs.getString("password"));
@@ -45,19 +41,6 @@ public class MySQLUserRepository implements UserRepository {
 				tempUser.setTown(rs.getString("town"));
 				tempUser.setTelephone(rs.getString("telephone"));
 				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
 				users.add(tempUser);
 	        }
 		} catch (ClassNotFoundException e) {
@@ -107,31 +90,8 @@ public class MySQLUserRepository implements UserRepository {
 			pstmt.setString(7, user.getTown());
 			pstmt.setString(8, user.getTelephone());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -139,7 +99,6 @@ public class MySQLUserRepository implements UserRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -194,31 +153,8 @@ public class MySQLUserRepository implements UserRepository {
 			pstmt.setString(8, user.getTelephone());
 			pstmt.setInt(9, user.getUserId());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -226,7 +162,6 @@ public class MySQLUserRepository implements UserRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -258,37 +193,17 @@ public class MySQLUserRepository implements UserRepository {
 			
 			conn.setAutoCommit(false);
 			
-			String query = "DELETE FROM users WHERE id = ?;";
-			
+			String query = "DELETE FROM shoppingbasket WHERE shoppingbasket.users_id = ?;";
 			pstmt = conn.prepareStatement(query);
-			
 			pstmt.setInt(1, user.getUserId());
-			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
+			query = "DELETE FROM users WHERE id = ?;";
+			pstmt.close();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, user.getUserId());
+			pstmt.executeUpdate();
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -296,7 +211,6 @@ public class MySQLUserRepository implements UserRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -322,7 +236,6 @@ public class MySQLUserRepository implements UserRepository {
 		ResultSet rs = null;
 	    Connection conn = null;
 	    PreparedStatement pstmt = null;
-//	    users.clear();
 	    boolean validUser = false;
 	    int checkUser = 0;
 	    
@@ -343,7 +256,6 @@ public class MySQLUserRepository implements UserRepository {
 			
 			// Display all the data in the table.
 			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
 				checkUser = rs.getInt("valid_user");
 				
 				if(checkUser > 0) {
@@ -351,31 +263,6 @@ public class MySQLUserRepository implements UserRepository {
 				} else {
 					validUser = false;
 				}
-				
-//				User tempUser = new User(rs.getInt("id"));
-//				tempUser.setEmail(rs.getString("email"));
-//				tempUser.setPassword(rs.getString("password"));
-//				tempUser.setFirstName(rs.getString("firstname"));
-//				tempUser.setSurName(rs.getString("surname"));
-//				tempUser.setStreetAddress(rs.getString("street_address"));
-//				tempUser.setPostCode(rs.getString("post_code"));
-//				tempUser.setTown(rs.getString("town"));
-//				tempUser.setTelephone(rs.getString("telephone"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				users.add(tempUser);
 	        }
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -398,5 +285,60 @@ public class MySQLUserRepository implements UserRepository {
 		}
 	    
 	    return validUser;
+	}
+
+	@Override
+	public List<User> getUserOnUserId(int userId) {
+		ResultSet rs = null;
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    users.clear();
+	    
+	    try {
+			conn = Database.getConnection();
+			
+			String query = "SELECT * FROM users WHERE users.id = ?;";
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			// Display all the data in the table.
+			while (rs.next()) {
+				User tempUser = new User(rs.getInt("id"));
+				tempUser.setEmail(rs.getString("email"));
+				tempUser.setPassword(rs.getString("password"));
+				tempUser.setFirstName(rs.getString("firstname"));
+				tempUser.setSurName(rs.getString("surname"));
+				tempUser.setStreetAddress(rs.getString("street_address"));
+				tempUser.setPostCode(rs.getString("post_code"));
+				tempUser.setTown(rs.getString("town"));
+				tempUser.setTelephone(rs.getString("telephone"));
+				
+				users.add(tempUser);
+	        }
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	    
+	    return users;
 	}
 }

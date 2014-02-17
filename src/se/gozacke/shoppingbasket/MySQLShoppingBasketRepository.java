@@ -29,32 +29,15 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 		
 			pstmt = conn.prepareStatement(query);
 			
-//			pstmt.setString(1, "Juliet");
-//			pstmt.setString(2, "Crane");
-			
 			rs = pstmt.executeQuery();
 			
 			// Display all the data in the table.
 			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
 				ShoppingBasket tempShoppingbasket = new ShoppingBasket(rs.getInt("id"));
 				tempShoppingbasket.setUserId(rs.getInt("users_id"));
 				tempShoppingbasket.setProductId(rs.getInt("products_id"));
 				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
 				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
 				shoppingBaskets.add(tempShoppingbasket);
 	        }
 		} catch (ClassNotFoundException e) {
@@ -99,31 +82,8 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 			pstmt.setInt(2, shoppingBasket.getProductId());
 			pstmt.setInt(3, shoppingBasket.getQuantity());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -131,7 +91,6 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -168,10 +127,6 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 						 + "products_id = ?, "
 						 + "quantity = ? "
 						 + "WHERE id = ?;";
-		
-//			UPDATE table_name
-//			SET column1=value1,column2=value2,...
-//			WHERE some_column=some_value;
 			
 			pstmt = conn.prepareStatement(query);
 			
@@ -180,31 +135,8 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 			pstmt.setInt(3, shoppingBasket.getQuantity());
 			pstmt.setInt(4, shoppingBasket.getShoppingBasketId());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -212,7 +144,6 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -233,7 +164,6 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 		}
 	}
 	
-	//****************************
 	@Override
 	public void deleteOrderInShoppingBasket(ShoppingBasket shoppingBasket) {
 		ResultSet rs = null;
@@ -246,47 +176,13 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 			conn.setAutoCommit(false);
 			
 			String query = "DELETE FROM shoppingbasket WHERE id = ?;";
-		
-//			+ "SET users_id = ?, "
-//			 + "products_id = ?, "
-//			 + "quantity = ? "
-//			 + "WHERE id = ?;";
-			
-//			DELETE FROM Customers
-//			WHERE CustomerName='Alfreds Futterkiste' AND ContactName='Maria Anders';
 			
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setInt(1, shoppingBasket.getShoppingBasketId());
-//			pstmt.setInt(2, shoppingBasket.getProductId());
-//			pstmt.setInt(3, shoppingBasket.getQuantity());
-//			pstmt.setInt(4, shoppingBasket.getShoppingBasketId());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -294,7 +190,6 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -334,31 +229,16 @@ public class MySQLShoppingBasketRepository implements ShoppingBasketRepository {
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, username);
-//			pstmt.setString(2, "Crane");
 			
 			rs = pstmt.executeQuery();
 			
 			// Display all the data in the table.
 			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
 				ShoppingBasket tempShoppingbasket = new ShoppingBasket(rs.getInt("id"));
 				tempShoppingbasket.setUserId(rs.getInt("users_id"));
 				tempShoppingbasket.setProductId(rs.getInt("products_id"));
 				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
 				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
 				shoppingBaskets.add(tempShoppingbasket);
 	        }
 		} catch (ClassNotFoundException e) {

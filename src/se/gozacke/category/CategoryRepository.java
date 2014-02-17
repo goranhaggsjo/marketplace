@@ -9,4 +9,7 @@ public interface CategoryRepository {
 	public void deleteCategory(Category category);
 	public List<Category> getCategoryOnCategoryName(String categoryName);
 	public void updateStaffMemberResponsibleForCategory(int staffId, int categoryId);
+	public List<Category> getCategoriesFromProductName(String productName);
+	public List<Category> getCategoriesFromProductId(int productId);
+	public List<Category> getCategoryOnCategoryId(int categoryId);
 }

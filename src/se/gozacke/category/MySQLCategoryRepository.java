@@ -30,31 +30,14 @@ public class MySQLCategoryRepository implements CategoryRepository {
 			
 			pstmt = conn.prepareStatement(query);
 			
-//			pstmt.setString(1, "categories.staff_id");
-//			pstmt.setString(2, "Crane");
-			
 			rs = pstmt.executeQuery();
 			
 			// Display all the data in the table.
 			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
 				Category tempCategory = new Category(rs.getInt("id"));
 				tempCategory.setStaffId(rs.getInt("staff_Id"));
 				tempCategory.setCategoryName(rs.getString("category_name"));
 				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
 				categories.add(tempCategory);
 	        }
 		} catch (ClassNotFoundException e) {
@@ -98,31 +81,8 @@ public class MySQLCategoryRepository implements CategoryRepository {
 			pstmt.setString(1, category.getCategoryName());
 			pstmt.setInt(2, category.getStaffId());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -130,7 +90,6 @@ public class MySQLCategoryRepository implements CategoryRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -173,31 +132,8 @@ public class MySQLCategoryRepository implements CategoryRepository {
 			pstmt.setInt(2, category.getStaffId());
 			pstmt.setInt(3, category.getCategoryId());
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -205,7 +141,6 @@ public class MySQLCategoryRepository implements CategoryRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -234,40 +169,20 @@ public class MySQLCategoryRepository implements CategoryRepository {
 	    
 	    try {
 			conn = Database.getConnection();
-			
 			conn.setAutoCommit(false);
 			
-			String query = "DELETE FROM categories WHERE id = ?;";
+			String query = "DELETE FROM products_categories WHERE categories_id = ?";
 			
 			pstmt = conn.prepareStatement(query);
-			
 			pstmt.setInt(1, category.getCategoryId());
-			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
+			query = "DELETE FROM categories WHERE id = ?;";
+			pstmt.close();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, category.getCategoryId());
+			pstmt.executeUpdate();
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -275,7 +190,6 @@ public class MySQLCategoryRepository implements CategoryRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -313,34 +227,15 @@ public class MySQLCategoryRepository implements CategoryRepository {
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, categoryName);
-//			pstmt.setString(2, "Crane");
 			
 			rs = pstmt.executeQuery();
 			
 			// Display all the data in the table.
 			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
 				Category tempCategory = new Category(rs.getInt("id"));
 				tempCategory.setStaffId(rs.getInt("staff_Id"));
 				tempCategory.setCategoryName(rs.getString("category_name"));
 				
-//				private int categoryId;
-//				private int staffId;
-//				private String categoryName;
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
 				categories.add(tempCategory);
 	        }
 		} catch (ClassNotFoundException e) {
@@ -386,31 +281,8 @@ public class MySQLCategoryRepository implements CategoryRepository {
 			pstmt.setInt(1, staffId);
 			pstmt.setInt(2, categoryId);
 			
-//			pstmt.executeQuery();
 			pstmt.executeUpdate();
-			// Display all the data in the table.
-//			while (rs.next()) {
-//				System.out.println(rs.getString("firstname") + " " + rs.getString("surname"));
-//				ShoppingBasket tempShoppingbasket = new ShoppingBasket();
-//				tempShoppingbasket.setUserId(rs.getInt("users_id"));
-//				tempShoppingbasket.setProductId(rs.getInt("products_id"));
-//				tempShoppingbasket.setQuantity(rs.getInt("quantity"));
-				
-//				tempCustomer.setFirstname(rs.getString("firstname"));
-//				tempCustomer.setSurname(rs.getString("surname"));
-//				tempCustomer.setStreetAddress(rs.getString("street_address"));
-//				tempCustomer.setPostCode(rs.getString("post_code"));
-//				tempCustomer.setTown(rs.getString("town"));
-//				tempCustomer.setMobile(rs.getString("mobile"));
-//				tempCustomer.setEmail(rs.getString("email"));
-//				
-//				User tempUser = new User(rs.getInt("user_id"), tempCustomer);
-//				
-//				tempUser.setUser(rs.getString("user"));
-//				tempUser.setPass(rs.getString("pass"));
-//				
-//				shoppingBaskets.add(tempShoppingbasket);
-//	        }
+			
 			conn.commit();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -418,7 +290,6 @@ public class MySQLCategoryRepository implements CategoryRepository {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -437,5 +308,162 @@ public class MySQLCategoryRepository implements CategoryRepository {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	public List<Category> getCategoriesFromProductName(String productName) {
+		ResultSet rs = null;
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    categories.clear();
+	    
+	    try {
+			conn = Database.getConnection();
+			
+			String query = "SELECT categories.id, categories.staff_id, categories.category_name "
+						 + "FROM categories, products_categories, products "
+						 + "WHERE categories.id = products_categories.categories_id "
+						 + "AND products.id = products_categories.products_id "
+						 + "AND products.product_name = ?;";
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, productName);
+			
+			rs = pstmt.executeQuery();
+			
+			// Display all the data in the table.
+			while (rs.next()) {
+				Category tempCategory = new Category(rs.getInt("id"));
+				tempCategory.setStaffId(rs.getInt("staff_id"));
+				tempCategory.setCategoryName(rs.getString("category_name"));
+				
+				categories.add(tempCategory);
+	        }
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	    
+	    return categories;
+	}
+
+	@Override
+	public List<Category> getCategoriesFromProductId(int productId) {
+		ResultSet rs = null;
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    categories.clear();
+	    
+	    try {
+			conn = Database.getConnection();
+			
+			String query = "SELECT categories.id, categories.staff_id, categories.category_name "
+						 + "FROM categories, products_categories, products "
+						 + "WHERE categories.id = products_categories.categories_id "
+						 + "AND products.id = products_categories.products_id "
+						 + "AND products.id = ?;";
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, productId);
+			
+			rs = pstmt.executeQuery();
+			
+			// Display all the data in the table.
+			while (rs.next()) {
+				Category tempCategory = new Category(rs.getInt("id"));
+				tempCategory.setStaffId(rs.getInt("staff_id"));
+				tempCategory.setCategoryName(rs.getString("category_name"));
+				
+				categories.add(tempCategory);
+	        }
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	    
+	    return categories;
+	}
+
+	@Override
+	public List<Category> getCategoryOnCategoryId(int categoryId) {
+		ResultSet rs = null;
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    categories.clear();
+	    
+	    try {
+			conn = Database.getConnection();
+			
+			String query = "SELECT * "
+						 + "FROM categories "
+						 + "WHERE id = ?;";
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, categoryId);
+			
+			rs = pstmt.executeQuery();
+			
+			// Display all the data in the table.
+			while (rs.next()) {
+				Category tempCategory = new Category(rs.getInt("id"));
+				tempCategory.setStaffId(rs.getInt("staff_Id"));
+				tempCategory.setCategoryName(rs.getString("category_name"));
+				
+				categories.add(tempCategory);
+	        }
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	    
+	    return categories;
 	}
 }
